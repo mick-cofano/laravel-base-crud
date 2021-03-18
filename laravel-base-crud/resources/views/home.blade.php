@@ -11,7 +11,12 @@
 
     <body>
 
-      beer shop
+      <h1>BEER SHOP</h1>
+
+      @foreach ($beers as $beer)
+        <p>{{$beer->title}}</p>
+      @endforeach
+
 
     </body>
 </html>
