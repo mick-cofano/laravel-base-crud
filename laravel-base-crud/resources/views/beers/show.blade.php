@@ -4,7 +4,6 @@
 
 @section('content')
 
-    <body>
 
       <div class="card" style="width: 15rem;">
         <img class="card-img-top" src="{{$beer->cover}}" alt="Card image cap">
