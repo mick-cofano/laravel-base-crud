@@ -38,7 +38,18 @@ class BeerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      // versione lunga
+        $data = $request->all();
+        $beer = new Beer();
+        $beer->title = $data['title'];
+        $beer->description = $data['description'];
+        $beer->price = $data['price'];
+        $beer->cover = $data['cover'];
+        $beer->save();
+
+        $beerStored = Beer::orderBy('id', 'desc')->first();
+        return redirect()->route('beers.show', $beerStored);
+
     }
 
     /**

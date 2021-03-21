@@ -10,22 +10,22 @@
 
       <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" name="title" placeholder="Title">
+        <input class="form-control" type="text" name="title" placeholder="Title">
       </div>
 
       <div class="form-group">
         <label for="description">Description</label>
-        <input type="text" name="description" placeholder="Description">
+        <input class="form-control" type="text" name="description" placeholder="Description">
       </div>
 
       <div class="form-group">
         <label for="price">Price</label>
-        <input type="text" name="price" placeholder="Price">
+        <input class="form-control" type="text" name="price" placeholder="Price">
       </div>
 
       <div class="form-group">
         <label for="cover">Cover</label>
-        <input type="text" name="cover" placeholder="Cover Url">
+        <input class="form-control" type="text" name="cover" placeholder="Cover Url">
       </div>
 
       <input type="submit" value="Invia">
