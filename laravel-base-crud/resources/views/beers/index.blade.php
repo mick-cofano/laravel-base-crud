@@ -22,10 +22,11 @@
           </tr>
         </thead>
         <tbody>
+
           @foreach ($beers as $beer)
             <tr>
               <th scope="row">{{ $beer->id }}</th>
-              <td>{{ $beer->title }}</td>
+              <td><a href="{{ route('beers.show', ['beer' => $beer->id]) }}">{{ $beer->title }}</a></td>
               <td>{{ $beer->description }}</td>
               <td>{{ $beer->price }}</td>
               <td><img src="{{ $beer->cover }}" width="150" /></td>
