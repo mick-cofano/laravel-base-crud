@@ -38,6 +38,14 @@ class BeerController extends Controller
      */
     public function store(Request $request)
     {
+
+      $validateData = $request->validate([
+        'title' => 'required|max:255',
+        'description' => 'required|min:1',
+        'price' => 'digits:6',
+
+      ]);
+
       $data = $request->all();
 
       // versione lunga
