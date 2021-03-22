@@ -28,12 +28,26 @@
               <td><img src="{{ $beer->cover }}" width="150" /></td>
               <td>
                 <a href="{{ route('beers.show', ['beer' => $beer->id]) }}">
+                  <button type="submit" class="btn btn-primary">
                    <i class="far fa-eye"></i>
+                  </button>
                 </a>
                 <a href="{{ route('beers.edit', ['beer' => $beer->id]) }}">
+                  <button type="submit" class="btn btn-primary">
                    <i class="fas fa-edit"></i>
+                  </button>
                 </a>
-                <i class="fas fa-meteor"></i>
+
+                <form action="{{ route('beers.destroy', ['beer' => $beer->id]) }}" method="post">
+                  @csrf
+                  @method('DELETE')
+
+                  <button type="submit" class="btn btn-danger">
+                    <i class="fas fa-meteor"></i>
+                  </button>
+
+
+                </form>
               </td>
             </tr>
           @endforeach

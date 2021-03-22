@@ -39,12 +39,7 @@ class BeerController extends Controller
     public function store(Request $request)
     {
 
-      $validateData = $request->validate([
-        'title' => 'required|max:255',
-        'description' => 'required|min:1',
-        'price' => 'digits:6',
-
-      ]);
+      $this->validateForm($request);
 
       $data = $request->all();
 
@@ -85,29 +80,45 @@ class BeerController extends Controller
      */
     public function edit(Beer $beer)
     {
-        dd($beer);
+        return view('beers.edit', compact('beer'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Beer  $beer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Beer $beer)
     {
-        //
+      $this->validateForm($request);
+
+      $data = $request->all();
+
+      $beer->update($data);
+
+      return redirect()->route('beers.show', compact('beer'));
     }
+
+    protected function validateForm(Request $request) {
+      $validateData = $request->validate([
+        'title' => 'required|max:255',
+      ]);
+    }
+
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Beer  $beer
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Beer $beer)
     {
-        //
+
+        $beer->delete();
+
+        return redirect()->route('beers.index');
     }
 }
