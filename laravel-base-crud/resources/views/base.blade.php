@@ -6,7 +6,20 @@
   </head>
 
   <body>
-    @if ($errors->any())
+
+
+    {{-- @php
+
+    dump($errors);
+    if($errors->has('title')) {
+      echo 'Il titolo ha un errore: ';
+      echo $errors->first('title');
+    }
+
+    @endphp --}}
+
+
+    {{-- @if ($errors->any())
       <div class="alert alert-danger">
         <ul>
           @foreach ($errors->all() as $error)
@@ -14,7 +27,7 @@
           @endforeach
         </ul>
       </div>
-    @endif
+    @endif --}}
 
     <div class="container">
       @yield('content')
